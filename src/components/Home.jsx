@@ -8,7 +8,7 @@ import { fetchPosts } from '../actions';
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
-  shows: PropTypes.arrayOf(PropTypes.node).isRequired,
+  shows: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 class Home extends React.Component {

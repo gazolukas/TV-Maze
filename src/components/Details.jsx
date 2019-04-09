@@ -6,13 +6,21 @@ import moment from 'moment';
 import { fetchPost } from '../actions';
 
 const propTypes = {
-  match: PropTypes.node.isRequired,
+  match: PropTypes.oneOfType([PropTypes.node, PropTypes.object]).isRequired,
   dispatch: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
-  genres: PropTypes.string.isRequired,
-  premiered: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  summary: PropTypes.string,
+  genres: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+  premiered: PropTypes.string,
+  image: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+};
+
+const defaultProps = {
+  name: '',
+  summary: '',
+  genres: '',
+  premiered: '',
+  image: '',
 };
 
 class Details extends React.Component {
@@ -57,7 +65,11 @@ class Details extends React.Component {
               <p dangerouslySetInnerHTML={{ __html: summary.replace(/\n/g, '<br />') }} />
             )}
             {genres &&
-              genres.map((genre) => <span className="badge badge-secondary">{genre}</span>)}
+              genres.map((genre) => (
+                <span className="badge badge-secondary" key={genre}>
+                  {genre}
+                </span>
+              ))}
           </div>
         </div>
       </div>
@@ -66,6 +78,7 @@ class Details extends React.Component {
 }
 
 Details.propTypes = propTypes;
+Details.defaultProps = defaultProps;
 
 function mapStateToProps(state) {
   return {
