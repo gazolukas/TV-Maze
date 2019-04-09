@@ -1,7 +1,7 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
-import { HashRouter } from "react-router-dom";
+import { HashRouter } from 'react-router-dom';
 import configureStore from './store/configureStore';
 import App from './App';
 

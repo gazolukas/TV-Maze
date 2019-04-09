@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { StaticRouter } from "react-router-dom";
+import { StaticRouter } from 'react-router-dom';
 import fs from 'fs';
 import path from 'path';
 import { Provider } from 'react-redux';
@@ -16,15 +16,15 @@ function handleRender(req, res) {
   // rehydration data.
   const context = {};
   const html = ReactDOMServer.renderToString(
-      <StaticRouter location={req.url} context={context}>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </StaticRouter>
+    <StaticRouter location={req.url} context={context}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </StaticRouter>,
   );
 
   // Load contents of index.html
-  fs.readFile('./index.html', 'utf8', function (err, data) {
+  fs.readFile('./index.html', 'utf8', (err, data) => {
     if (err) throw err;
 
     // Inserts the rendered React HTML into our main div

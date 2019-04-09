@@ -26,9 +26,9 @@ function receivePosts(search, json) {
 export function fetchPosts(search) {
   return (dispatch) => {
     dispatch(requestPosts(search));
-    return fetch('//api.tvmaze.com/search/shows?q=' + search)
-      .then(response => response.json())
-      .then(json => dispatch(receivePosts(search, json)));
+    return fetch(`//api.tvmaze.com/search/shows?q=${search}`)
+      .then((response) => response.json())
+      .then((json) => dispatch(receivePosts(search, json)));
   };
 }
 
@@ -50,8 +50,8 @@ function receivePost(search, json) {
 export function fetchPost(id) {
   return (dispatch) => {
     dispatch(requestPost(id));
-    return fetch('//api.tvmaze.com/shows/' + id)
-      .then(response => response.json())
-      .then(json => dispatch(receivePost(id, json)));
+    return fetch(`//api.tvmaze.com/shows/${id}`)
+      .then((response) => response.json())
+      .then((json) => dispatch(receivePost(id, json)));
   };
 }

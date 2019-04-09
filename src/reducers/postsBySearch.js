@@ -1,8 +1,4 @@
-import {
-  INVALIDATE_POSTS,
-  REQUEST_POSTS,
-  RECEIVE_POSTS,
-} from '../actions';
+import { INVALIDATE_POSTS, REQUEST_POSTS, RECEIVE_POSTS } from '../actions';
 
 function posts(
   state = {

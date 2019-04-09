@@ -1,8 +1,4 @@
-import {
-  INVALIDATE_POST,
-  REQUEST_POST,
-  RECEIVE_POST,
-} from '../actions';
+import { INVALIDATE_POST, REQUEST_POST, RECEIVE_POST } from '../actions';
 
 function post(
   state = {
